@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Prediction Result</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container result-box">
+
+<h1>Prediction Result</h1>
+
+<div id="resultText"></div>
+
+<a href="index.html" class="backBtn">Try Again</a>
+
+</div>
+
+<script>
+
+const result = localStorage.getItem("prediction");
+
+const resultBox = document.getElementById("resultText");
+
+if(result == "1")
+{
+resultBox.innerHTML = "<h2 class='benign'>Benign (No Cancer Detected)</h2>";
+}
+else
+{
+resultBox.innerHTML = "<h2 class='malignant'>Malignant (Cancer Detected)</h2>";
+}
+
+</script>
+
+</body>
+</html>

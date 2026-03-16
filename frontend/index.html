@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Breast Cancer Prediction</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Breast Cancer Prediction System</h1>
+<p class="subtitle">Enter tumor measurements to predict cancer risk</p>
+
+<form id="predictionForm">
+
+<div class="grid">
+
+<input type="number" step="any" placeholder="Radius Mean" required>
+<input type="number" step="any" placeholder="Texture Mean" required>
+<input type="number" step="any" placeholder="Perimeter Mean" required>
+<input type="number" step="any" placeholder="Area Mean" required>
+<input type="number" step="any" placeholder="Smoothness Mean" required>
+<input type="number" step="any" placeholder="Compactness Mean" required>
+<input type="number" step="any" placeholder="Concavity Mean" required>
+<input type="number" step="any" placeholder="Concave Points Mean" required>
+<input type="number" step="any" placeholder="Symmetry Mean" required>
+<input type="number" step="any" placeholder="Fractal Dimension Mean" required>
+
+</div>
+
+<button type="submit">Predict Result</button>
+
+</form>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
