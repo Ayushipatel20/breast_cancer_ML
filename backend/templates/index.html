@@ -2,8 +2,7 @@
 <html>
 <head>
 <title>Breast Cancer Prediction</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
 
 <body>
 
@@ -29,13 +28,40 @@
 
 </div>
 
-<button type="submit">Predict Result</button>
+<button type="button" onclick="predict()">Predict Result</button>
 
 </form>
 
 </div>
 
-<script src="script.js"></script>
+<script>
+function predict() {
+
+    let inputs = document.querySelectorAll("#predictionForm input");
+    let features = [];
+
+    inputs.forEach(input => {
+        features.push(parseFloat(input.value));
+    });
+
+    fetch("/predict", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({features: features})
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        // Save result
+        localStorage.setItem("prediction", data.prediction);
+
+        // Redirect to result page
+        window.location.href = "/result";
+    });
+}
+</script>
 
 </body>
 </html>

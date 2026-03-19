@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import pickle
 import numpy as np
 from flask_cors import CORS
+from flask import render_template
 import os
 
 app = Flask(__name__)
@@ -15,10 +16,14 @@ model = pickle.load(open(os.path.join(BASE_DIR, "model/breast_cancer_model.pkl")
 scaler = pickle.load(open(os.path.join(BASE_DIR, "model/scaler.pkl"), "rb"))
 
 
-@app.route("/")
-def home():
-    return "Breast Cancer Prediction API Running"
 
+@app.route('/')
+def home():
+    return render_template("index.html")
+
+@app.route('/result')
+def result():
+    return render_template("result.html")
 
 @app.route("/predict", methods=["POST"])
 def predict():
